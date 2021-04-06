@@ -1,32 +1,35 @@
 const date = document.querySelector("input[type=date]");
-const luckyNo = document.querySelector("input[type=text]");
+const number = document.querySelector("input[type=text]");
 const check = document.querySelector("#check");
 const reset = document.querySelector("#reset");
-// console.log(luckyNo);
 
-const birthday = date.value.split('-');
+// To check if lucky or not
+check.addEventListener('click', () => {
 
-
-console.log(sumOfDates);
-const day = parseInt(birthday[2]);
-const month = parseInt(birthday[1]);
-const year = parseInt(birthday[0]);
-
-const num = parseInt(luckyNo.value);
-
-check.addEventListener('click', (day,month,year,num) => {
+    const birthday = date.value.split('-');
+    const luckyNo = number.value;
     
-    total = day+month+year;
-
-    if(total % num === 0){
-        console.log("Oye Lucky !!!");
+    if(birthday.length != 1 && luckyNo != ''){
+        sum = birthday.reduce((sum, date) => sum + parseInt(date),0);
+        luckyOrNot(sum, parseInt(luckyNo));
     }else{
-        console.log("Not Lucky :(");
+        alert("Please fill all fields !");
     }
-})
-
+});
+// To reset/clear values
 reset.addEventListener('click', () => {
     date.value =  null; 
-    luckyNo.value = null ;
+    number.value = null ;
+    document.querySelector('.message').innerText = '';
 });
-// console.log(num);
+// Logic
+const luckyOrNot = (sumOfDates, luckyNum) => sumOfDates % luckyNum === 0 ? showMessage(true) : showMessage(false); 
+// Show Response
+const showMessage = (response) => {
+    const output = document.querySelector('.message');
+    if(response){
+        output.innerText = "Oye Lucky !!!";
+    }else{
+        output.innerText = "Not lucky :(";
+    }
+}
