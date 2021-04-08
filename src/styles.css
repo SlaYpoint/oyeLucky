@@ -12,7 +12,7 @@
 
 body{
     margin: 0;
-    padding : 3rem 0rem;
+    padding : 2rem 0rem;
     background : var(--bg-color) ;
     font-family: 'Ubuntu', sans-serif;
     text-align: center;
@@ -74,7 +74,7 @@ section > .input__box{
 .secondary__btn{
     background : white;
     color: var(--font-color);
-    border: 1px solid var(--font-color);
+    border: 1px solid var(--primary);
 }
 .secondary__btn:hover{
     background : var(--primary);
@@ -101,3 +101,14 @@ footer > a{
     padding: 0.3rem;
 }
 
+.cookie-info{
+    background : var(--primary);
+    color: white;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    width: 100%;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    position: fixed;
+    bottom: 0;
+}
