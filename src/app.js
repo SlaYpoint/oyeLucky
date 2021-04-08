@@ -2,6 +2,7 @@ const date = document.querySelector("input[type=date]");
 const number = document.querySelector("input[type=text]");
 const check = document.querySelector("#check");
 const reset = document.querySelector("#reset");
+const accept = document.querySelector("#clear");
 
 // To check if lucky or not
 check.addEventListener('click', () => {
@@ -33,3 +34,7 @@ const showMessage = (response) => {
         output.innerText = "Not lucky :(";
     }
 }
+// Clear pop-up
+accept.addEventListener('click', (e) => {
+    e.target.parentElement.style.display = "none"; 
+})
